@@ -1,4 +1,14 @@
-<%= render "info" ,user:@user%>
-<h1>User</h1>
-<p>ユーザーぺーじ</p>
-<%= @user.name %>
+<div class="container">
+	<div class="row">
+		<div class="col-md-3">
+			<h1>User info</h1>
+			<%= render "info" ,user:@user%>
+		</div>
+		
+		<div class="col-md-9">
+			<h1>User</h1>
+			<p>ユーザーぺーじ</p>
+			<%= @user.name %>
+		</div>
+	</div>
+</div>
