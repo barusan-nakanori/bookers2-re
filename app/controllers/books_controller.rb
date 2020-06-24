@@ -15,6 +15,7 @@ before_action :baria_book, only: [:edit]
   	@book = Book.new(book_params)
   	@book.user_id = current_user.id
   	if @book.save
+      flash[:notice] = 'You have creatad book successfully.'
   		redirect_to book_path(@book)
   	else
   		@books = Book.all
