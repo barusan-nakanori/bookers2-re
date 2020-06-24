@@ -1,14 +1,28 @@
-<h1>welcome to Bookers !!</h1>
-<p>In Bookers,
+<div class="container">
+	<div class="row">
+		<div class="col-md-6-offset-3">
+			<h1>welcome to Bookers !!</h1>
+			<p>In Bookers,
 
-you can share and exchange your opinions , inpressions , and emotions
+			you can share and exchange your opinions , inpressions , and emotions
 
-about various books!</p>
+			about various books!</p>
 
-<% if user_signed_in? %>
-	<%= link_to 'Log in',user_path(current_user) %>
-	<%= link_to 'Sign up',user_path(current_user) %>
-<% else %>
-	<%= link_to 'Log in',new_user_session_path %>
-	<%= link_to 'Sign up',new_user_registration_path %>
-<% end %>
+			<% if user_signed_in? %>
+				<div class="row">
+					<%= link_to 'Log in',user_path(current_user),class: "btn btn-info form-control" %>
+				</div>
+				<div class="row">
+					<%= link_to 'Sign up',user_path(current_user), class: "btn btn-success form-control"%>
+				</div>
+				<% else %>
+				<div class="row">
+					<%= link_to 'Log in',new_user_session_path,class: "btn btn-info form-control" %>
+				</div>
+				<div class="row">
+					<%= link_to 'Sign up',new_user_registration_path, class: "btn btn-success form-control" %>
+				</div>
+			<% end %>
+		</div>
+	</div>
+</div>

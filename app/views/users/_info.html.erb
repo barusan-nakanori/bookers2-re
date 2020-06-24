@@ -10,6 +10,8 @@
 			</tr>
 		</table>
 
-		<%= link_to "edit", edit_user_path(user) ,class: "btn btn-success"%>
+		<%= link_to edit_user_path(user) ,class: "btn btn-success form-control" do %>
+			 <i class="fas fa-wrench"></i>
+		<% end %>
 
 		<%= render 'books/new', book:@book%>
