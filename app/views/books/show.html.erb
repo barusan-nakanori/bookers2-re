@@ -1,4 +1,3 @@
-<h1>Book detail</h1>
 <div class="container">
 	<div class="row">
 		<div class="col-md-3">
@@ -6,13 +5,15 @@
 			<%= render "users/info" ,user:current_user%>
 		</div>
 		<div class="col-md-9">
-			<h1>Books</h1>
+			<h1>Book detail</h1>
 			<table class= "table">
 				<thead>
 					<tr>
 						<th></th>
 						<th>Title</th>
 						<th>Option</th>
+						<th></th>
+						<th></th>
 					</tr>
 				</thead>
 					<tbody>
@@ -20,6 +21,8 @@
 							<td><%= attachment_image_tag(@book_user ,:profile_image, :fill,30,30 ,fallback: "no_image.jpg") %></td>
 							<td><%= @book.title %></td>
 							<td><%= @book.body %></td>
+							<td><%= link_to "Edit", edit_book_path(@book) %></td>
+							<td><%= link_to "Destroy", book_path(@book), method: :delete %></td>
 						</tr>
 					</tbody>
 			</table>
