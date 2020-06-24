@@ -5,10 +5,12 @@ class BooksController < ApplicationController
   end
 
   def show
+  	@book = Book.find(params[:id])
   end
 
   def create
   	@book = Book.new(params_book)
+  	@book.user_id = current_user.id
   	if @book.save
   		redirect_to book_path(@book)
   	else
