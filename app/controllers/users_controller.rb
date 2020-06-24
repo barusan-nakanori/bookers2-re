@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 before_action :authenticate_user!
+before_action :baria_user, only: [:edit]
 
   def index
   	@users = User.all
@@ -30,4 +31,11 @@ before_action :authenticate_user!
 	  def user_params
 	  	params.require(:user).permit(:name,:introduction,:profile_image)
 	  end
+
+    def baria_user
+      @user = User.find(params[:id])
+      unless current_user == @user
+        redirect_to user_path(current_user)
+      end
+    end
 end

@@ -2,7 +2,7 @@
 	<div class="row">
 		<div class="col-md-3">
 			<h1>User info</h1>
-			<%= render "users/info" ,user:current_user%>
+			<%= render "users/info" ,user:@book.user%>
 		</div>
 		<div class="col-md-9">
 			<h1>Book detail</h1>
@@ -24,8 +24,10 @@
 							</td>
 							<td><%= @book.title %></td>
 							<td><%= @book.body %></td>
-							<td><%= link_to "Edit", edit_book_path(@book) %></td>
-							<td><%= link_to "Destroy", book_path(@book), method: :delete %></td>
+							<% if current_user == @book.user %>
+								<td><%= link_to "Edit", edit_book_path(@book) %></td>
+								<td><%= link_to "Destroy", book_path(@book), method: :delete %></td>
+							<% end %>
 						</tr>
 					</tbody>
 			</table>
