@@ -28,11 +28,14 @@
 							</td>
 							<td><%= link_to book.title, book_path(book) %></td>
 							<td><%= book.body %></td>
-							<% if current_user.already.favorited?(book) %>
-								<td></td>
-							<% else %>
-								<td></td>
-							<% end %>
+							<td>
+								<% if current_user.already_favorited?(book) %>
+									<%= link_to "いいねを外す", book_favorites_path(book) ,method: :delete %>
+								<% else %>
+									<%= link_to "いいね", book_favorites_path(book) ,method: :post %>
+								<% end %>
+								<%= book.favorites.count %>件
+							</td>
 						</tr>
 					</tbody>
 				<% end %>
