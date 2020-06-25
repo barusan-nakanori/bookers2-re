@@ -14,6 +14,7 @@
 						<th></th>
 						<th>Title</th>
 						<th>Option</th>
+						<th></th>
 					</tr>
 				</thead>
 
@@ -27,6 +28,11 @@
 							</td>
 							<td><%= link_to book.title, book_path(book) %></td>
 							<td><%= book.body %></td>
+							<% if current_user.already.favorited?(book) %>
+								<td></td>
+							<% else %>
+								<td></td>
+							<% end %>
 						</tr>
 					</tbody>
 				<% end %>
