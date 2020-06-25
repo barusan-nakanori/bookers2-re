@@ -8,6 +8,7 @@ class User < ApplicationRecord
 	validates :introduction, length: {maximum: 50}
 	has_many :books, dependent: :destroy
 	has_many :favorites, dependent: :destroy
+	has_many :book_comments
 
 	def already_favorited?(book)
 		self.favorites.exists?(book_id: book.id)
