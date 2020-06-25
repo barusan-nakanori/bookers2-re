@@ -45,6 +45,22 @@
 						</tr>
 					</tbody>
 			</table>
+			<% @comments.each do |comment| %>
+			<div>
+				<%= link_to user_path(comment.user) do %>
+					<%= attachment_image_tag comment.user, :profile_image, :fill,30,30 ,fallback: "no_image.jpg" %>
+				<% end %>
+				<%= comment.content %>
+				<%= link_to "Destroy", book_book_comments_path(comment.book), method: :delete, class: "btn btn-denger" %>
+			</div>
+			<% end %>
+
+			<%= form_for [@book,@comment], url: book_book_comments_path(@book) do |f| %>
+
+				<%= f.text_area :content, autofocus: true %></br>
+
+				<%= f.submit "コメントする" %>
+				<% end %>
 		</div>
 	</div>
 </div>

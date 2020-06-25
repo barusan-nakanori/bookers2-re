@@ -10,7 +10,7 @@ before_action :baria_book, only: [:edit]
   def show
   	@book = Book.find(params[:id])
     @comments = @book.book_comments
-    @comment = Comment.new
+    @comment = BookComment.new
   end
 
   def create
