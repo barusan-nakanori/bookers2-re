@@ -23,7 +23,8 @@ class BookCommentsController < ApplicationController
 	end
 
 	def destroy
-		@comment = BookComment.find(book_id: params[:book_id])
+		@book = Book.find(params[:book_id])
+		@comment = BookComment.find(params[:id])
 		@comment.destroy
 		redirect_to book_path(@comment.book)
 	end
@@ -34,6 +35,6 @@ class BookCommentsController < ApplicationController
 		# end
 
 		def comment_params
-			params.require(:book_comment).permit(:content)
+			params.require(:book_comment).permit(:content,:book_id)
 		end
 end

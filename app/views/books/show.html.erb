@@ -51,7 +51,7 @@
 					<%= attachment_image_tag comment.user, :profile_image, :fill,30,30 ,fallback: "no_image.jpg" %>
 				<% end %>
 				<%= comment.content %>
-				<%= link_to "Destroy", book_book_comments_path(comment.book), method: :delete, class: "btn btn-denger" %>
+				<%= link_to "Destroy", book_book_comment_path(@book,comment), method: :delete, class: "btn btn-denger" %>
 			</div>
 			<% end %>
 
